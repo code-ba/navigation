@@ -1,0 +1,60 @@
+# 国际化
+language:
+  cn: 中文 # 第一个为默认值，未设置则默认中文
+  en: English
+# 列表数据
+listdata:
+  - title: 常用推荐
+    title_cn: 常用推荐 # 默认中文，可以省略 _cn
+    title_en: Recommended
+    icon: star
+    link:
+      - name: Dribbble
+        name_en: 
+        description: 全球UI设计师作品分享平台。
+        description_en: Global UI designer work sharing platform.
+        link: https://www.baidu.com/1
+        logo: /images/logos/dribbble.png
+  - title: 灵感采集
+    title_en: Inspiration
+    icon: lightbulb
+    children:
+    - title: 发现产品
+      title_en: Product
+      link:
+        - name: Producthunt
+          name_en: 
+          description: 发现新鲜有趣的产品
+          link: https://www.baidu.com/2
+          description_en: Discover fresh and interesting products
+          logo: /images/logos/producthunt.png
+        - name: Producthunt
+          name_en: 
+          description: 发现新鲜有趣的产品
+          link: https://www.baidu.com/2
+          description_en: Discover fresh and interesting products
+          logo: /images/logos/producthunt.png
+  - title: 常用推荐1
+    title_cn: 常用推荐1 # 默认中文，可以省略 _cn
+    title_en: Recommended2
+    icon: star
+    link:
+      - name: Dribbble
+        name_en: 
+        description: 全球UI设计师作品分享平台。
+        description_en: Global UI designer work sharing platform.
+        link: https://www.baidu.com/1
+        logo: /images/logos/dribbble.png
+      - name: Dribbble
+        name_en: 
+        description: 全球UI设计师作品分享平台。
+        description_en: Global UI designer work sharing platform.
+        link: https://www.baidu.com/1
+        logo: /images/logos/dribbble.png
+      - name: Dribbble
+        name_en: 
+        description: 全球UI设计师作品分享平台。
+        description_en: Global UI designer work sharing platform.
+        link: https://www.baidu.com/1
+        logo: /images/logos/dribbble.png
+      - name: Dribbble

@@ -1,0 +1,31 @@
+{
+  "name": "navigation",
+  "version": "1.0.0",
+  "description": "A hexo theme based on navigation.",
+  "keywords": [
+    "hexo",
+    "theme",
+    "navigation"
+  ],
+  "main": "package.json",
+  "scripts": {
+    "test": "ejslint",
+    "mincss": "cleancss",
+    "postinstall": "node ./move_config.js"
+  },
+  "author": "Baran <info@cxvh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/code-ba/navigation/issues",
+    "email": "info@cxvh.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-ba/navigation.git"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^4.3.0",
+    "ejs-lint": "^1.1.0",
+    "uglify-js": "^3.9.4"
+  }
+}

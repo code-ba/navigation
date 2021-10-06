@@ -1,0 +1,4 @@
+# listDataSource: source/_data/data.yml # 支持本地路径
+listDataSource: https://cdn.jsdelivr.net/gh/cxvh/cxvh@main/yml/navigation.yml # 支持在线路径
+error_404: # 404 页面配置有问题，待解决
+  enable: true

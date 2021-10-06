@@ -1,0 +1,257 @@
+doctype html
+head
+  script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+  script.
+    (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8550836177608334",
+    enable_page_level_ads: true
+    });
+  script.
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?c05bb16ea908292af9f6c513087a1cc3";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(name='author', content='viggo')
+  title=config.title
+  meta(name='keywords', content=config.keywords)
+  meta(name='description', content=config.description)
+
+  link(rel='shortcut icon', href='https://cxvh.com/img/favicon.ico')
+  link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic')
+  link(rel='stylesheet', href='/css/fonts/linecons/css/linecons.css')
+  link(rel='stylesheet', href='/css/fonts/fontawesome/css/font-awesome.min.css')
+  link(rel='stylesheet', href='/css/bootstrap.css')
+  link(rel='stylesheet', href='/css/xenon-core.css')
+  link(rel='stylesheet', href='/css/xenon-components.css')
+  link(rel='stylesheet', href='/css/xenon-skins.css')
+  link(rel='stylesheet', href='/css/nav.css')
+  script(src='/js/jquery-1.11.1.min.js')
+  // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+  //if lt IE 9
+    script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+    script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+// skin-white
+.page-container
+  .sidebar-menu.toggle-others.fixed
+    .sidebar-menu-inner
+      header.logo-env
+        // logo
+        .logo
+          a#site-name.logo-expanded(href='#')
+            | BARAN
+            span の
+            | 导航🔥🔥🔥
+          a#site-name.logo-collapsed(href='#')
+            img(src="https://cdn.jsdelivr.net/gh/cxvh/static@main/avatar/avatar_icon.jpg",width="40")
+        .mobile-menu-toggle.visible-xs
+          a(href='#', data-toggle='user-info-menu')
+            i.linecons-cog
+          a(href='#', data-toggle='mobile-menu')
+            i.fa-bars
+      ul#main-menu.main-menu
+        each item,index in config.menuData
+          - var titleId='#'+item['title_'+config.defaultLang],icon='linecons-'+(item.icon||'star'),hasChild=Array.isArray(item.children)
+          li(class=hasChild?'has-sub':'')
+            a(class=hasChild?'':'smooth',href=hasChild?'':titleId)
+              i(class=icon)
+              span.title(data-lang="config.menuData['"+index+"']['title_'+config.defaultLang]")=item['title_'+config.defaultLang]
+            if hasChild
+              ul
+                each child,idx in item.children
+                  li
+                    - var tId='#'+child['title_'+config.defaultLang]
+                    a.smooth(href=tId)
+                      span.title(data-lang="config.menuData['"+index+"'].children['"+idx+"']['title_'+config.defaultLang]")=child['title_'+config.defaultLang]
+                      if child.hot
+                        span.label.label-pink.pull-right.hidden-collapsed Hot
+  .main-content
+    nav.navbar.user-info-navbar(role='navigation')
+      // User Info, Notifications and Menu Bar
+      // Left links for user info navbar
+      ul.user-info-menu.left-links.list-inline.list-unstyled
+        li.hidden-sm.hidden-xs
+          a(href='#', data-toggle='sidebar')
+            i.fa-bars
+        li.dropdown.hover-line.language-switcher
+          a.dropdown-toggle(data-toggle='dropdown')
+            img(src='/images/flags/flag-cn.png', alt='flag-cn')
+            span(data-lang="config.languageArr[config.languageKeyArr.indexOf(config.defaultLang)]")=config.languageArr[config.languageKeyArr.indexOf(config.defaultLang)]
+          ul.dropdown-menu.languages
+            each item,index in config.languageKeyArr
+              li(class=item===config.defaultLang?'active':'',data-language=item)
+                a(onclick='changeLang("'+item+'")')
+                  img(src='/images/flags/flag-'+item+'.png', alt=config.languageArr[index])
+                  span=config.languageArr[index]
+      ul.user-info-menu.right-links.list-inline.list-unstyled
+        li.hidden-sm.hidden-xs
+          a(href='https://github.com/code-ba/navigation', target='_blank')
+            i.fa-github
+            | &nbsp;&nbsp;GitHub
+    // 列表 Start
+    each item,index in config.listData
+      h4.text-gray.item-title(id=item['title_'+config.defaultLang])
+        i.linecons-tag(style='margin-right: 7px;')
+        span(data-lang="config.listData["+index+"]['title_'+config.defaultLang]")=item['title_'+config.defaultLang]
+      .row
+        each linkItem,idx in item.link
+          .col-sm-3
+            a.xe-widget.xe-conversations.box2(href=linkItem.link,target=linkItem.target||"_blank", data-toggle='tooltip', data-placement='bottom', title=linkItem['name_'+config.defaultLang], data-original-title=linkItem.link)
+              .xe-comment-entry
+                span.xe-user-img
+                  img.lozad.img-circle(data-src=linkItem.logo, width='40')
+                .xe-comment
+                  span.xe-user-name.overflowClip_1(href='#')
+                    strong(data-lang="config.listData["+index+"].link["+idx+"]['name_'+config.defaultLang]")=linkItem['name_'+config.defaultLang]
+                  p.overflowClip_2(data-lang="config.listData["+index+"].link["+idx+"]['description_'+config.defaultLang]")=linkItem['description_'+config.defaultLang]
+    // 列表 End
+
+    // Main Footer
+    // Choose between footer styles: "footer-type-1" or "footer-type-2"
+    // Add class "sticky" to  always stick the footer to the end of page (if page contents is small)
+    // Or class "fixed" to  always fix the footer to the end of page
+    footer.main-footer.sticky.footer-type-1
+      .footer-inner
+        // Add your copyright text here
+        .footer-text
+          a= '©2020 - 2021 By Baran'
+          span=" | "
+          a(href='https://github.com/cxvh/cxvh/blob/main/yml/navigation.yml' target="_blank")
+            span="编辑"
+          span=" | "
+          a(href='https://cxvh.com' target="_blank")
+            span Baran的小站🔥🔥🔥
+        .go-up
+          a(href='#', rel='go-top')
+            i.fa-angle-up
+
+
+  script(type="text/template")=JSON.stringify(config)
+
+
+// 锚点平滑移动
+script(type='text/javascript').
+  function menuToggle(){
+      var top=$(document).scrollTop();
+      $("#main-menu li").removeClass("active");
+      $('.smooth').each(function(index,item){
+        const pos=$($(this).attr('href')).position().top - 30
+        const next=$('.smooth').eq(index+1)
+        if(top<pos){
+          if(!index){
+            $("#main-menu li:first").addClass("active");
+            if($(this).parents('.has-sub').length){
+              if(!$(this).parents('.has-sub').hasClass('expanded')){
+                $(this).parents('.has-sub').children('a').click()
+              }
+            }
+          }
+          return
+        };
+        if(next.length){
+          if(top<$(next.attr('href')).position().top-30){
+            $(this).parent("li").addClass("active");
+            
+            if($(this).parents('.has-sub').length){
+              if(!$(this).parents('.has-sub').hasClass('expanded')){
+                $(this).parents('.has-sub').children('a').click()
+              }
+            }
+          }
+        }else{
+          $("#main-menu li:last").addClass("active");
+          if($(this).parents('.has-sub').length){
+            if(!$(this).parents('.has-sub').hasClass('expanded')){
+              $(this).parents('.has-sub').children('a').click()
+            }
+          }
+        }
+      })
+  }
+  function changeLang(lang){
+    if(lang){
+      config.defaultLang=lang;
+      localStorage.setItem('language',lang)
+    }else{
+      lang=localStorage.getItem('language')
+      let index=config.languageKeyArr.indexOf(lang);
+      if(index<0)index=0;
+      config.defaultLang=config.languageKeyArr[index];
+    }
+    
+    $('[data-language="'+lang+'"]').addClass('active').siblings().removeClass('active');
+    $('[data-lang]').each(function(){
+      const method=$(this).attr('data-lang')
+      $(this).text(eval(method))
+    })
+  }
+  $(function() {
+    window.config=eval('('+$('[type="text/template"]').html().replace(/\&quot;/g,'"')+')')
+    $('[type="text/template"]').remove();
+    changeLang();
+    //img lazy loaded
+    const observer = lozad();
+    observer.observe();
+    $('.has-sub').on('click',function(){
+      var _this = $(this)
+      if(!$(this).hasClass('expanded')) {
+        setTimeout(function(){
+          _this.find('ul').attr("style","")
+        }, 300);
+      } else {
+        $('.has-sub ul').each(function(id,ele){
+          var _that = $(this)
+          
+          if(_this.find('ul')[0] != ele) {
+            setTimeout(function(){
+            _that.attr("style","")
+            }, 300);
+          }
+        })
+      }
+    })
+    $('.user-info-menu .hidden-sm').click(function(){
+      $('.has-sub.expanded > ul').toggle()
+    })
+    $("#main-menu li ul li:not(.has-sub)").click(function() {
+      $(this).addClass('active').siblings('li').removeClass('active');
+    });
+    let isClick=false;
+    $("a.smooth").click(function(ev) {
+      ev.preventDefault();
+      $("#main-menu li").removeClass("active");
+      $(this).parent("li").addClass("active");
+      public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
+      ps_destroy();
+      $("html, body").animate({
+        scrollTop: $($(this).attr("href")).offset().top - 30
+      }, {
+        duration: 300,
+        easing: "swing"
+      });
+      isClick=true;
+      setTimeout(function(){
+        isClick=false;
+      },400)
+    });
+    $(window).on("scroll",function(event){
+      if(isClick)return;
+      menuToggle();
+    })
+    menuToggle();
+  });
+// Bottom Scripts
+script(src='/js/bootstrap.min.js')
+script(src='/js/TweenMax.min.js')
+script(src='/js/resizeable.js')
+script(src='/js/joinable.js')
+script(src='/js/xenon-api.js')
+script(src='/js/xenon-toggles.js')
+// JavaScripts initializations and stuff
+script(src='/js/xenon-custom.js')
+script(src='/js/lozad.js')
